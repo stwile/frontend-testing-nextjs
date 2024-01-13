@@ -1,7 +1,7 @@
 import { rest } from 'msw';
 
-import { path } from '..';
 import { getMyProfileData } from './fixture';
+import { path } from '..';
 
 export const handleGetMyProfile = (args?: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
