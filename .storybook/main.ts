@@ -1,4 +1,4 @@
-import { StorybookConfig } from '@storybook/nextjs/*';
+import { StorybookConfig } from '@storybook/nextjs';
 import path from 'path';
 
 const config: StorybookConfig = {
@@ -41,4 +41,4 @@ const config: StorybookConfig = {
   },
 };
 
-export { config };
+export default config;
