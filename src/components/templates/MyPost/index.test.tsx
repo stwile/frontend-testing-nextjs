@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { act, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import mockRouter from 'next-router-mock';
 
@@ -17,7 +17,7 @@ test('見出しの表示', () => {
 
 test('「編集する」リンクを押下すると、編集ページに遷移する', async () => {
   render(<MyPost post={getMyPostData} />);
-  await user.click(screen.getByRole('link', { name: '編集する' }));
+  await act(() => user.click(screen.getByRole('link', { name: '編集する' })));
   await waitFor(() =>
     expect(mockRouter).toMatchObject({ pathname: '/my/posts/1/edit' }),
   );

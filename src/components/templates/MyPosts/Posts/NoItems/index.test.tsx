@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import mockRouter from 'next-router-mock';
 
@@ -15,10 +15,12 @@ test('タイトル表示', () => {
 
 test('リンク押下', async () => {
   render(<NoItems />);
-  await user.click(
-    screen.getByRole('link', {
-      name: 'はじめての記事を書いてみましょう',
-    }),
+  await act(() =>
+    user.click(
+      screen.getByRole('link', {
+        name: 'はじめての記事を書いてみましょう',
+      }),
+    ),
   );
   expect(mockRouter).toMatchObject({ pathname: '/my/posts/create' });
 });

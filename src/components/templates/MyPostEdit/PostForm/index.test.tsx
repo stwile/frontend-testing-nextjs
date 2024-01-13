@@ -1,5 +1,5 @@
 import { composeStories } from '@storybook/react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { act, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { handleGetMyProfile } from '@/services/client/MyProfile/__mock__/msw';
@@ -26,17 +26,25 @@ function setup() {
   );
   async function typeTitle(title: string) {
     const textbox = screen.getByRole('textbox', { name: '記事タイトル' });
-    await user.type(textbox, title);
+    await act(() => user.type(textbox, title));
   }
   async function saveAsPublished() {
-    await user.click(screen.getByRole('switch', { name: '公開ステータス' }));
-    await user.click(screen.getByRole('button', { name: '記事を公開する' }));
+    await act(() =>
+      user.click(screen.getByRole('switch', { name: '公開ステータス' })),
+    );
+    await act(() =>
+      user.click(screen.getByRole('button', { name: '記事を公開する' })),
+    );
   }
   async function saveAsDraft() {
-    await user.click(screen.getByRole('button', { name: '下書き保存する' }));
+    await act(() =>
+      user.click(screen.getByRole('button', { name: '下書き保存する' })),
+    );
   }
   async function clickDelete() {
-    await user.click(screen.getByRole('button', { name: '記事を削除する' }));
+    await act(() =>
+      user.click(screen.getByRole('button', { name: '記事を削除する' })),
+    );
   }
   return {
     typeTitle,
@@ -58,7 +66,7 @@ test('不適正内容で保存を試みると、バリデーションエラー�
   await waitFor(() =>
     expect(
       screen.getByRole('textbox', { name: '記事タイトル' }),
-    ).toHaveErrorMessage('1文字以上入力してください'),
+    ).toHaveAccessibleErrorMessage('1文字以上入力してください'),
   );
 });
 

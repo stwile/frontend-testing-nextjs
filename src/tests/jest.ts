@@ -1,4 +1,4 @@
-import { screen } from '@testing-library/react';
+import { act, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { setupServer } from 'msw/node';
 
@@ -21,7 +21,7 @@ export function selectImageFile(
   const filePath = [`C:\\fakepath\\${fileName}`];
   const file = new File([content], fileName, { type: 'image/png' });
   const fileInput = screen.getByTestId(inputTestId);
-  const selectImage = () => user.upload(fileInput, file);
+  const selectImage = async () => await act(() => user.upload(fileInput, file));
   return { fileInput, filePath, selectImage };
 }
 

@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import mockRouter from 'next-router-mock';
 
@@ -20,7 +20,7 @@ test('初期表示、query.orderBy なしの場合「公開日時順」が選択
 
 test('選択した場合、query.orderBy が設定される', async () => {
   const { combobox } = setup();
-  await user.selectOptions(combobox, 'starCount');
+  await act(() => user.selectOptions(combobox, 'starCount'));
   expect(combobox).toHaveDisplayValue('スター数順');
   expect(mockRouter).toMatchObject({
     pathname: '/posts',

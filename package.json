@@ -73,6 +73,7 @@
     "@storybook/jest": "^0.2.3",
     "@storybook/nextjs": "^7.6.6",
     "@storybook/react": "^7.6.6",
+    "@storybook/test": "^7.6.8",
     "@storybook/test-runner": "^0.16.0",
     "@storybook/testing-library": "^0.2.2",
     "@svgr/webpack": "^6.4.0",

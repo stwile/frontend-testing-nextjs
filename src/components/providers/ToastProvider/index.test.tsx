@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { ToastState } from './ToastContext';
@@ -24,7 +24,7 @@ test('showToast を呼び出すと Toast コンポーネントが表示される
   );
   // 初めは表示されていない
   expect(screen.queryByRole('alert')).not.toBeInTheDocument();
-  await user.click(screen.getByRole('button'));
+  await act(() => user.click(screen.getByRole('button')));
   // 表示されていることを確認
   expect(screen.getByRole('alert')).toHaveTextContent(message);
 });

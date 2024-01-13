@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { mockUseToastAction } from '@/components/providers/ToastProvider/__mock__/hooks';
@@ -22,7 +22,7 @@ const setup = () => {
     const region = screen.getByRole('region', { name: 'ログインユーザー' });
     await user.hover(region);
     const button = screen.getByRole('button', { name: 'ログアウト' });
-    await user.click(button);
+    await act(() => user.click(button));
   };
   return { showToast, clickLogout };
 };

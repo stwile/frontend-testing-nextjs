@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { useForm } from 'react-hook-form';
 
@@ -21,8 +21,10 @@ const setup = () => {
   const { getByRole } = render(<TestComponent />);
   const title = getByRole('textbox', { name: '記事タイトル' });
   const description = getByRole('textbox', { name: '記事概要' });
-  const typeTitle = (text: string) => user.type(title, text);
-  const typeDescription = (text: string) => user.type(description, text);
+  const typeTitle = async (text: string) =>
+    await act(() => user.type(title, text));
+  const typeDescription = async (text: string) =>
+    await act(() => user.type(description, text));
   return { typeTitle, typeDescription };
 };
 

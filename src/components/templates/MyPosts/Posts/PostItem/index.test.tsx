@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import mockRouter from 'next-router-mock';
 
@@ -26,7 +26,7 @@ test('リンクのアクセシブルネームはタイトルを参照する', ()
 test('リンクを押下すると画面遷移する', async () => {
   // リンク遷移確認は、一覧表示で検証するよりも、最小コンポーネントで検証するとより速い
   const { post, click } = setup();
-  await click();
+  await act(() => click());
   expect(mockRouter).toMatchObject({ pathname: `/my/posts/${post.id}` });
 });
 

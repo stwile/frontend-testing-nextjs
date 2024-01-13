@@ -1,5 +1,5 @@
 import { composeStories } from '@storybook/react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { act, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { Input } from '@/services/client/Login';
@@ -22,9 +22,9 @@ export async function setup(injectValues?: Partial<Input>) {
   const email = screen.getByRole('textbox', { name: 'メールアドレス' });
   const password = screen.getByPlaceholderText('8文字以上で入力');
   const button = screen.getByRole('button', { name: 'ログイン' });
-  await user.type(email, input.email);
-  await user.type(password, input.password);
-  await user.click(button);
+  await act(() => user.type(email, input.email));
+  await act(() => user.type(password, input.password));
+  await act(() => user.click(button));
 }
 
 setupMockServer(...Login.handlers, ...MyProfile.handlers);

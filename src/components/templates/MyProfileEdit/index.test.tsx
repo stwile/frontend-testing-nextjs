@@ -1,5 +1,5 @@
 import { composeStories } from '@storybook/react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { act, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import mockRouter from 'next-router-mock';
 
@@ -16,9 +16,10 @@ function setup() {
   const utils = render(<Default />);
   const name = utils.getByRole('textbox', { name: 'ユーザー名' });
   const button = screen.getByRole('button', { name: 'プロフィールを変更する' });
-  const clearName = () => user.clear(name);
-  const typeName = (value: string) => user.type(name, value);
-  const clickButton = () => user.click(button);
+  const clearName = async () => await act(() => user.clear(name));
+  const typeName = async (value: string) =>
+    await act(() => user.type(name, value));
+  const clickButton = async () => await act(() => user.click(button));
   return { clearName, typeName, clickButton };
 }
 

@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { act, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { ToastProvider } from '@/components/providers/ToastProvider';
@@ -56,7 +56,7 @@ test('Like 押下しリクエストに成功すると、数が1加算され、�
   expect(screen.getByText('Like')).toBeInTheDocument();
   expect(button).toHaveTextContent('0');
   expect(button).toBeEnabled();
-  await click();
+  await act(() => click());
   expect(await screen.findByText('Liked')).toBeInTheDocument();
   expect(button).toHaveTextContent('1');
   expect(button).toBeDisabled();
@@ -67,7 +67,7 @@ test('Like 押下しリクエストに失敗すると、数は加算されず、
   const { click, button } = setup();
   expect(button).toHaveTextContent('0');
   expect(button).toBeEnabled();
-  await click();
+  await act(() => click());
   expect(button).toHaveTextContent('0');
   expect(button).not.toBeDisabled();
   await waitFor(() =>

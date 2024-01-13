@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ComponentPropsWithoutRef } from 'react';
 import { useForm } from 'react-hook-form';
@@ -29,15 +29,21 @@ const setup = (isSubmitting = false) => {
       onClickDelete={onClickDelete}
     />,
   );
-  const clickSwitch = () =>
-    user.click(getByRole('switch', { name: '公開ステータス' }));
-  const clickSaveButton = () =>
-    user.click(
-      queryByRole('button', { name: '記事を公開する' }) ||
-        getByRole('button', { name: '下書き保存する' }),
+  const clickSwitch = async () =>
+    await act(() =>
+      user.click(getByRole('switch', { name: '公開ステータス' })),
     );
-  const clickDeleteButton = () =>
-    user.click(getByRole('button', { name: '記事を削除する' }));
+  const clickSaveButton = async () =>
+    await act(() =>
+      user.click(
+        queryByRole('button', { name: '記事を公開する' }) ||
+          getByRole('button', { name: '下書き保存する' }),
+      ),
+    );
+  const clickDeleteButton = async () =>
+    await act(() =>
+      user.click(getByRole('button', { name: '記事を削除する' })),
+    );
   return {
     getByRole,
     clickSwitch,

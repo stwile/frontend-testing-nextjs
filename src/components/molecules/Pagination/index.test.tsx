@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import mockRouter from 'next-router-mock';
 
@@ -43,7 +43,7 @@ test('現在ページ値を渡している場合、レンダリングされる',
 test('カレント表記が変化する', async () => {
   setup(1);
   assertHasCurrent('1');
-  await clickLink('2');
+  await act(() => clickLink('2'));
   assertHasCurrent('2');
 });
 
@@ -51,6 +51,6 @@ test('URL検索クエリーが変わる', async () => {
   mockRouter.setCurrentUrl('/posts?page=1');
   setup(1);
   expect(mockRouter).toMatchObject({ query: { page: '1' } });
-  await clickLink('2');
+  await act(() => clickLink('2'));
   expect(mockRouter).toMatchObject({ query: { page: '2' } });
 });

@@ -1,5 +1,5 @@
 import { composeStories } from '@storybook/react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { act, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import mockRouter from 'next-router-mock';
 
@@ -18,18 +18,24 @@ function setup() {
   const { selectImage } = selectImageFile();
   async function typeTitle(title: string) {
     const textbox = screen.getByRole('textbox', { name: '記事タイトル' });
-    await user.type(textbox, title);
+    await act(() => user.type(textbox, title));
   }
   async function saveAsPublished() {
-    await user.click(screen.getByRole('switch', { name: '公開ステータス' }));
-    await user.click(screen.getByRole('button', { name: '記事を公開する' }));
+    await act(() =>
+      user.click(screen.getByRole('switch', { name: '公開ステータス' })),
+    );
+    await act(() =>
+      user.click(screen.getByRole('button', { name: '記事を公開する' })),
+    );
     await screen.findByRole('alertdialog');
   }
   async function saveAsDraft() {
-    await user.click(screen.getByRole('button', { name: '下書き保存する' }));
+    await act(() =>
+      user.click(screen.getByRole('button', { name: '下書き保存する' })),
+    );
   }
   async function clickButton(name: 'はい' | 'いいえ') {
-    await user.click(screen.getByRole('button', { name }));
+    await act(() => user.click(screen.getByRole('button', { name })));
   }
   return {
     container,

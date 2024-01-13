@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import mockRouter from 'next-router-mock';
 
@@ -11,7 +11,7 @@ function setup(url = '/my/posts?page=1') {
   render(<Header />);
   const combobox = screen.getByRole('combobox', { name: '公開ステータス' });
   async function selectOption(label: string) {
-    await user.selectOptions(combobox, label);
+    await act(() => user.selectOptions(combobox, label));
   }
   return { combobox, selectOption };
 }
