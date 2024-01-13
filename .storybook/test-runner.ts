@@ -17,7 +17,7 @@ export default {
     }
     await injectAxe(page);
   },
-  async postRender(page: Page, context: Context) {
+  async postVisit(page: Page, context: Context) {
     const storyContext = await getStoryContext(page, context);
     if (storyContext.parameters?.a11y?.disable) {
       return;
