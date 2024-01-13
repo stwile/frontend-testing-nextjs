@@ -8,4 +8,6 @@ export const createMyPostsData = (id: string): ApiMyPosts.PostReturn => ({
   imageUrl: '/__mocks__/images/img01.jpg',
   published: true,
   authorId: 1,
+  createdAt: new Date(),
+  updatedAt: new Date(),
 });

@@ -10,4 +10,6 @@ export const getPostData: GetPostReturn = {
   authorId: 1,
   likeCount: 1,
   liked: true,
+  createdAt: new Date(),
+  updatedAt: new Date(),
 };

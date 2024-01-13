@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -15,10 +15,11 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
+    "strictNullChecks": true,
     "paths": {
       "@/*": ["./src/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "prisma/seed.ts"]
+  "exclude": ["node_modules", "prisma/seed.ts", "src/tests/*"]
 }

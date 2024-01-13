@@ -9,4 +9,7 @@ export const getMyProfileData: GetMyProfileReturn = {
   imageUrl: '/__mocks__/images/img01.jpg',
   email: 'taroyamada@example.com',
   likeCount: 1,
+  createdAt: new Date(),
+  updatedAt: new Date(),
+  password: 'password',
 };

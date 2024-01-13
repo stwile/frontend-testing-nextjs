@@ -8,6 +8,9 @@ export const getMyProfileData: GetMyProfileEditReturn = {
   githubAccount: 'taro-yamada',
   imageUrl: '/__mocks__/images/img01.jpg',
   email: 'taroyamada@example.com',
+  createdAt: new Date(),
+  updatedAt: new Date(),
+  password: 'password',
 };
 
 export const updateMyProfileData: UpdateMyProfileEditReturn = {
