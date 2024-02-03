@@ -40,7 +40,8 @@
     "pre-commit": "lint-staged",
     "pre-push": "tsc",
     "prettier": "prettier --write .",
-    "secretlint": "secretlint --maskSecrets --secretlintignore .gitignore '**/*'"
+    "secretlint": "secretlint --maskSecrets --secretlintignore .gitignore '**/*'",
+    "markuplint": "markuplint \"./**/*.tsx\""
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",
@@ -69,6 +70,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
+    "@markuplint/jsx-parser": "^3.12.0",
+    "@markuplint/react-spec": "^3.13.0",
     "@playwright/test": "^1.40.1",
     "@secretlint/secretlint-rule-preset-recommend": "^8.1.1",
     "@storybook/addon-a11y": "^7.6.6",
@@ -114,6 +117,7 @@
     "jest-environment-jsdom": "^29.3.1",
     "jest-html-reporters": "^3.0.11",
     "lint-staged": "^15.2.0",
+    "markuplint": "^3.15.0",
     "msw": "^0.47.4",
     "msw-storybook-addon": "^1.10.0",
     "next-router-mock": "^0.9.1",
