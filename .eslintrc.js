@@ -1,22 +1,22 @@
 /** @type {import('eslint').ESLint.ConfigData} */
 module.exports = {
   extends: [
-    "next/core-web-vitals",
-    "plugin:storybook/recommended",
-    "eslint:recommended",
-    "prettier",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    'eslint:recommended',
+    'next/core-web-vitals',
+    'plugin:@typescript-eslint/recommended-type-checked',
+    'prettier',
   ],
   plugins: [
-    "jest-dom",
-    "testing-library",
-    "@typescript-eslint",
+    'jest-dom',
+    'testing-library',
+    '@typescript-eslint',
     'import',
+    'react',
+    'unused-imports'
   ],
   rules: {
-    "@next/next/no-img-element": "off",
-    "react/no-children-prop": "off",
+    '@next/next/no-img-element': 'off',
+    'react/no-children-prop': 'off',
     'import/order': [
       'error',
       {
@@ -69,9 +69,9 @@ module.exports = {
       },
     ],
   },
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: "./tsconfig.json"
+    project: './tsconfig.json'
   },
   root: true
 }
