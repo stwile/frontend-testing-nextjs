@@ -36,7 +36,10 @@
     "docker:e2e:start": "pnpm run prisma:reset && start-server-and-test 'pnpm start' 3000 'pnpm run test:e2e'",
     "docker:e2e:build": "docker compose -f docker-compose.e2e.yaml build",
     "docker:e2e:ci": "docker compose -f docker-compose.e2e.yaml up --exit-code-from e2e",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "pre-commit": "lint-staged",
+    "pre-push": "tsc",
+    "prettier": "prettier --write ."
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",
