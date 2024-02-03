@@ -39,7 +39,8 @@
     "prepare": "husky install",
     "pre-commit": "lint-staged",
     "pre-push": "tsc",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "secretlint": "secretlint --maskSecrets --secretlintignore .gitignore '**/*'"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",
@@ -69,6 +70,7 @@
   "devDependencies": {
     "@babel/core": "^7.19.3",
     "@playwright/test": "^1.40.1",
+    "@secretlint/secretlint-rule-preset-recommend": "^8.1.1",
     "@storybook/addon-a11y": "^7.6.6",
     "@storybook/addon-actions": "^7.6.6",
     "@storybook/addon-essentials": "^7.6.6",
@@ -123,6 +125,7 @@
     "reg-notify-github-plugin": "^0.12.1",
     "reg-publish-s3-plugin": "^0.12.1",
     "reg-suit": "^0.12.1",
+    "secretlint": "^8.1.1",
     "start-server-and-test": "^1.14.0",
     "storybook": "^7.6.6",
     "storycap": "^3.1.9",
