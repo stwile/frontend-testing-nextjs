@@ -7,15 +7,16 @@ import {
 
 import { Toast } from '.';
 
-function createDecorator(defaultState?: Partial<ToastState>) {
-  return function Decorator() {
+const createDecorator = (defaultState?: Partial<ToastState>) => {
+  const Decorator = () => {
     return (
       <ToastProvider defaultState={{ ...defaultState, isShown: true }}>
         {null}
       </ToastProvider>
     );
   };
-}
+  return Decorator;
+};
 
 export default {
   component: Toast,
