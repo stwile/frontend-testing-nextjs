@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { InputFileButton } from './';
 
@@ -12,8 +12,8 @@ export default {
       config: { rules: [{ id: 'label', enabled: false }] },
     },
   },
-} as ComponentMeta<typeof InputFileButton>;
+} satisfies Meta<typeof InputFileButton>;
 
-type Story = ComponentStoryObj<typeof InputFileButton>;
+type Story = StoryObj<typeof InputFileButton>;
 
 export const Default: Story = {};

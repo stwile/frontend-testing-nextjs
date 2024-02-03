@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { getPostData } from '@/services/server/Post/__mock__/fixture';
 import { BasicLayoutDecorator, PCStory, SPStory } from '@/tests/storybook';
@@ -9,9 +9,9 @@ export default {
   component: Post,
   args: { post: getPostData, user: null },
   decorators: [BasicLayoutDecorator],
-} as ComponentMeta<typeof Post>;
+} satisfies Meta<typeof Post>;
 
-type Story = ComponentStoryObj<typeof Post>;
+type Story = StoryObj<typeof Post>;
 
 export const Default: Story = { ...PCStory };
 

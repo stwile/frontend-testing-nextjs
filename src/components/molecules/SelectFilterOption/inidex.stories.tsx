@@ -1,12 +1,12 @@
-import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { SelectFilterOption } from './';
 
 export default {
   component: SelectFilterOption,
-} as ComponentMeta<typeof SelectFilterOption>;
+} satisfies Meta<typeof SelectFilterOption>;
 
-type Story = ComponentStoryObj<typeof SelectFilterOption>;
+type Story = StoryObj<typeof SelectFilterOption>;
 
 export const Default: Story = {
   args: {

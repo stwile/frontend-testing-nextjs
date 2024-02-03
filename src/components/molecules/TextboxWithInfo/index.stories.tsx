@@ -1,13 +1,13 @@
-import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { TextboxWithInfo } from './';
 
 export default {
   component: TextboxWithInfo,
   args: { title: '記事タイトル' },
-} as ComponentMeta<typeof TextboxWithInfo>;
+} satisfies Meta<typeof TextboxWithInfo>;
 
-type Story = ComponentStoryObj<typeof TextboxWithInfo>;
+type Story = StoryObj<typeof TextboxWithInfo>;
 
 export const Default: Story = {};
 

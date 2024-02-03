@@ -1,13 +1,13 @@
-import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { TextareaWithInfo } from './';
 
 export default {
   component: TextareaWithInfo,
   args: { title: '記事本文' },
-} as ComponentMeta<typeof TextareaWithInfo>;
+} satisfies Meta<typeof TextareaWithInfo>;
 
-type Story = ComponentStoryObj<typeof TextareaWithInfo>;
+type Story = StoryObj<typeof TextareaWithInfo>;
 
 export const Default: Story = {};
 

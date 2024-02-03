@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { Combobox } from './';
 
@@ -18,8 +18,8 @@ export default {
       </>
     ),
   },
-} as ComponentMeta<typeof Combobox>;
+} satisfies Meta<typeof Combobox>;
 
-type Story = ComponentStoryObj<typeof Combobox>;
+type Story = StoryObj<typeof Combobox>;
 
 export const Default: Story = {};

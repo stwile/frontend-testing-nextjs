@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import {
   ToastProvider,
@@ -19,9 +19,9 @@ function createDecorator(defaultState?: Partial<ToastState>) {
 
 export default {
   component: Toast,
-} as ComponentMeta<typeof Toast>;
+} satisfies Meta<typeof Toast>;
 
-type Story = ComponentStoryObj<typeof Toast>;
+type Story = StoryObj<typeof Toast>;
 
 export const Succeed: Story = {
   decorators: [createDecorator({ message: '成功しました', style: 'succeed' })],

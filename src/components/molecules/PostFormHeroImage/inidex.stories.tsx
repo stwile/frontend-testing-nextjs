@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
 
 import { PutInput } from '@/pages/api/my/posts/[postId]';
@@ -25,8 +25,8 @@ function TestComponent() {
 
 export default {
   component: TestComponent,
-} as ComponentMeta<typeof PostFormHeroImage>;
+} satisfies Meta<typeof PostFormHeroImage>;
 
-type Story = ComponentStoryObj<typeof PostFormHeroImage>;
+type Story = StoryObj<typeof PostFormHeroImage>;
 
 export const Default: Story = {};

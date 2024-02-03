@@ -1,13 +1,13 @@
-import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { LinkButton } from './';
 
 export default {
   component: LinkButton,
   args: { children: '送信する', href: '/', className: 'hoge' },
-} as ComponentMeta<typeof LinkButton>;
+} satisfies Meta<typeof LinkButton>;
 
-type Story = ComponentStoryObj<typeof LinkButton>;
+type Story = StoryObj<typeof LinkButton>;
 
 export const Default: Story = {};
 

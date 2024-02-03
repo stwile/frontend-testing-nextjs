@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import {
   BadRequestError,
@@ -17,9 +17,9 @@ export default {
   parameters: {
     ...PCStory.parameters,
   },
-} as ComponentMeta<typeof Error>;
+} satisfies Meta<typeof Error>;
 
-type Story = ComponentStoryObj<typeof Error>;
+type Story = StoryObj<typeof Error>;
 
 export const BadRequest: Story = {
   args: new BadRequestError().serialize(),

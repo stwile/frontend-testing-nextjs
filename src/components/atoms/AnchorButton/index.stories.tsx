@@ -1,13 +1,13 @@
-import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { AnchorButton } from './';
 
 export default {
   component: AnchorButton,
   args: { children: '送信する' },
-} as ComponentMeta<typeof AnchorButton>;
+} satisfies Meta<typeof AnchorButton>;
 
-type Story = ComponentStoryObj<typeof AnchorButton>;
+type Story = StoryObj<typeof AnchorButton>;
 
 export const Default: Story = {};
 

@@ -1,9 +1,5 @@
 import { Args, PartialStoryFn } from '@storybook/csf';
-import {
-  ComponentMeta,
-  ComponentStoryObj,
-  ReactRenderer,
-} from '@storybook/react';
+import { Meta, StoryObj, ReactRenderer } from '@storybook/react';
 
 import { AlertDialogState } from './AlertDialogContext';
 
@@ -21,9 +17,9 @@ function createDecorator(defaultState?: Partial<AlertDialogState>) {
 
 export default {
   component: AlertDialog,
-} as ComponentMeta<typeof AlertDialog>;
+} satisfies Meta<typeof AlertDialog>;
 
-type Story = ComponentStoryObj<typeof AlertDialog>;
+type Story = StoryObj<typeof AlertDialog>;
 
 export const Default: Story = {
   decorators: [createDecorator({ message: '成功しました' })],
