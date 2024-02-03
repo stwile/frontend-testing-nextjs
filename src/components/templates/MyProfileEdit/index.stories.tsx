@@ -1,7 +1,9 @@
-import { getMyProfileData } from "@/services/server/MyProfile/__mock__/fixture";
-import { BasicLayoutDecorator, PCStory, SPStory } from "@/tests/storybook";
-import { ComponentMeta, ComponentStoryObj } from "@storybook/react";
-import { MyProfileEdit } from "./";
+import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+
+import { getMyProfileData } from '@/services/server/MyProfile/__mock__/fixture';
+import { BasicLayoutDecorator, PCStory, SPStory } from '@/tests/storybook';
+
+import { MyProfileEdit } from './';
 
 export default {
   component: MyProfileEdit,

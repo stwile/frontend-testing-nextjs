@@ -1,6 +1,8 @@
-import { getMyPostsData } from "@/services/server/MyPosts/__mock__/fixture";
-import { ComponentMeta, ComponentStoryObj } from "@storybook/react";
-import { PostItem } from "./";
+import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+
+import { getMyPostsData } from '@/services/server/MyPosts/__mock__/fixture';
+
+import { PostItem } from './';
 
 export default {
   component: PostItem,
@@ -8,8 +10,8 @@ export default {
     a11y: {
       config: {
         rules: [
-          { id: "label", enabled: false },
-          { id: "listitem", enabled: false },
+          { id: 'label', enabled: false },
+          { id: 'listitem', enabled: false },
         ],
       },
     },

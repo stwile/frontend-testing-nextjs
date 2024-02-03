@@ -1,8 +1,9 @@
-import { ApiHandler, handleNotAllowed, withLogin } from "@/lib/next/api";
-import { getMyProfile, GetMyProfileReturn } from "@/services/server/MyProfile";
+import { ApiHandler, handleNotAllowed, withLogin } from '@/lib/next/api';
+import { getMyProfile, GetMyProfileReturn } from '@/services/server/MyProfile';
 
 export type GetReturn = GetMyProfileReturn;
 
+// eslint-disable-next-line @typescript-eslint/no-misused-promises
 const handleGet = withLogin<GetReturn>(async (req, res) => {
   const user = await getMyProfile({ id: req.user.id });
   res.status(200).json(user);
@@ -10,7 +11,7 @@ const handleGet = withLogin<GetReturn>(async (req, res) => {
 
 const handler: ApiHandler<GetReturn> = async (req, res) => {
   switch (req.method) {
-    case "GET":
+    case 'GET':
       return handleGet(req, res);
     default:
       return handleNotAllowed(res);

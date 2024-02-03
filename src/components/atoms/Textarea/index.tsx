@@ -1,8 +1,9 @@
-import clsx from "clsx";
-import { forwardRef } from "react";
-import styles from "./styles.module.css";
+import clsx from 'clsx';
+import { forwardRef } from 'react';
 
-type Props = React.ComponentPropsWithRef<"textarea">;
+import styles from './styles.module.css';
+
+type Props = React.ComponentPropsWithRef<'textarea'>;
 
 export const Textarea = forwardRef<HTMLTextAreaElement, Props>(
   function Textarea({ className, ...props }, ref) {
@@ -13,5 +14,5 @@ export const Textarea = forwardRef<HTMLTextAreaElement, Props>(
         className={clsx(className, styles.module)}
       />
     );
-  }
+  },
 );

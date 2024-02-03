@@ -1,7 +1,8 @@
-import { render, screen } from "@testing-library/react";
-import { Footer } from "./";
+import { render, screen } from '@testing-library/react';
 
-test("[role=contentinfo]", async () => {
+import { Footer } from './';
+
+test('[role=contentinfo]', () => {
   render(<Footer />);
-  expect(screen.getByRole("contentinfo")).toBeInTheDocument();
+  expect(screen.getByRole('contentinfo')).toBeInTheDocument();
 });

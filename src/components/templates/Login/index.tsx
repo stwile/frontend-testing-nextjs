@@ -1,14 +1,17 @@
-import { Button } from "@/components/atoms/Button";
-import { TextboxWithError } from "@/components/molecules/TextboxWithError";
-import { useToastAction } from "@/components/providers/ToastProvider";
-import { Input, InputSchema, postLogin } from "@/services/client/Login";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import styles from "./styles.module.css";
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+
+import { Button } from '@/components/atoms/Button';
+import { TextboxWithError } from '@/components/molecules/TextboxWithError';
+import { useToastAction } from '@/components/providers/ToastProvider';
+
+import { Input, InputSchema, postLogin } from '@/services/client/Login';
+
+import styles from './styles.module.css';
 
 const defaultValues: Input = {
-  email: "",
-  password: "",
+  email: '',
+  password: '',
 };
 
 export const Login = () => {
@@ -24,12 +27,13 @@ export const Login = () => {
   return (
     <form
       className={styles.module}
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises
       onSubmit={handleSubmit(async (values) => {
         try {
           const data = await postLogin(values);
           window.location.href = data.redirectUrl;
         } catch (err) {
-          showToast({ message: "ログインに失敗しました", style: "failed" });
+          showToast({ message: 'ログインに失敗しました', style: 'failed' });
         }
       })}
     >
@@ -40,7 +44,7 @@ export const Login = () => {
           <div className={styles.email}>
             <label htmlFor="email">メールアドレス</label>
             <TextboxWithError
-              {...register("email")}
+              {...register('email')}
               id="email"
               type="text"
               placeholder="example@test.com"
@@ -50,7 +54,7 @@ export const Login = () => {
           <div className={styles.password}>
             <label htmlFor="password">パスワード</label>
             <TextboxWithError
-              {...register("password")}
+              {...register('password')}
               id="password"
               type="password"
               placeholder="8文字以上で入力"

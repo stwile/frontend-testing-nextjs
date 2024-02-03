@@ -1,10 +1,13 @@
-import { useToastAction } from "@/components/providers/ToastProvider";
-import { parseAsPositiveInt } from "@/lib/util";
-import { postLike } from "@/services/client/Like";
-import { useRouter } from "next/router";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { Props } from "./";
+import { useRouter } from 'next/router';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+
+import { useToastAction } from '@/components/providers/ToastProvider';
+
+import { parseAsPositiveInt } from '@/lib/util';
+import { postLike } from '@/services/client/Like';
+
+import { Props } from './';
 
 export const useLikeButton = ({
   likeCount,
@@ -26,7 +29,7 @@ export const useLikeButton = ({
       setIsLiked(true);
       setLocalLikeCount((prev) => prev + 1);
     } catch (err) {
-      showToast({ message: "エラーが発生しました", style: "failed" });
+      showToast({ message: 'エラーが発生しました', style: 'failed' });
     }
   });
   return { isLiked, isDisabled, localLikeCount, onSubmit };

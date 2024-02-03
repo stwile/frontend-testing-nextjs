@@ -1,6 +1,8 @@
-import { BasicLayoutDecorator, PCStory, SPStory } from "@/tests/storybook";
-import { ComponentMeta, ComponentStoryObj } from "@storybook/react";
-import { MyPostsCreate } from "./";
+import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+
+import { BasicLayoutDecorator, PCStory, SPStory } from '@/tests/storybook';
+
+import { MyPostsCreate } from './';
 
 export default {
   component: MyPostsCreate,

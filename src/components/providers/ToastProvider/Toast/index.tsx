@@ -1,10 +1,12 @@
-import { useToastAction } from "@/components/providers/ToastProvider/hooks";
-import { ToastStyle } from "@/components/providers/ToastProvider/ToastContext";
-import { useState } from "react";
-import { useTimeoutFn } from "react-use";
-import Failed from "./assets/failed.svg";
-import Succeed from "./assets/succeed.svg";
-import styles from "./styles.module.css";
+import { useState } from 'react';
+import { useTimeoutFn } from 'react-use';
+
+import { ToastStyle } from '@/components/providers/ToastProvider/ToastContext';
+import { useToastAction } from '@/components/providers/ToastProvider/hooks';
+
+import Failed from './assets/failed.svg';
+import Succeed from './assets/succeed.svg';
+import styles from './styles.module.css';
 
 type Props = { message: string; style: ToastStyle };
 
@@ -24,7 +26,7 @@ export const Toast = ({ message, style }: Props) => {
       data-style={style}
       data-mounted={isMount}
     >
-      {style === "succeed" ? (
+      {style === 'succeed' ? (
         <Succeed role="presentation" />
       ) : (
         <Failed role="presentation" />

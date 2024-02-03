@@ -1,15 +1,16 @@
-import { HttpError } from "@/lib/error";
-import * as Like from "../";
-import { postLikeData } from "./fixture";
+import { HttpError } from '@/lib/error';
 
-jest.mock("../");
+import { postLikeData } from './fixture';
+import * as Like from '../';
+
+jest.mock('../');
 
 export function mockPostLikeResolved() {
-  return jest.spyOn(Like, "postLike").mockResolvedValue(postLikeData);
+  return jest.spyOn(Like, 'postLike').mockResolvedValue(postLikeData);
 }
 
 export function mockPostLikeRejected() {
   return jest
-    .spyOn(Like, "postLike")
+    .spyOn(Like, 'postLike')
     .mockRejectedValue(new HttpError(500).serialize());
 }

@@ -1,6 +1,7 @@
-import { NotFoundError } from "@/lib/error";
-import { UpdateMyPostInput } from "@/lib/schema/MyPost";
-import { handlePrismaError, prisma } from "..";
+import { NotFoundError } from '@/lib/error';
+import { UpdateMyPostInput } from '@/lib/schema/MyPost';
+
+import { handlePrismaError, prisma } from '..';
 
 export async function getMyPost({
   id,
@@ -12,7 +13,7 @@ export async function getMyPost({
   try {
     const data = await prisma.post.findUnique({ where: { id } });
     if (!data || data?.authorId !== authorId) throw new NotFoundError();
-    const { createdAt, updatedAt, ...res } = data;
+    const { ...res } = data;
     return res;
   } catch (err) {
     handlePrismaError(err);

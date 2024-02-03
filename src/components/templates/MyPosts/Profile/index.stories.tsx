@@ -1,6 +1,8 @@
-import { getMyProfileData } from "@/services/server/MyProfile/__mock__/fixture";
-import { ComponentMeta, ComponentStoryObj } from "@storybook/react";
-import { Profile } from "./";
+import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+
+import { getMyProfileData } from '@/services/server/MyProfile/__mock__/fixture';
+
+import { Profile } from './';
 
 export default {
   component: Profile,

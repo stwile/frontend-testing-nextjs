@@ -1,5 +1,6 @@
-import { ComponentMeta, ComponentStoryObj } from "@storybook/react";
-import { ContentFooter } from "./";
+import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+
+import { ContentFooter } from './';
 
 export default {
   component: ContentFooter,

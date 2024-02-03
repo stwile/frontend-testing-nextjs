@@ -1,6 +1,7 @@
-import clsx from "clsx";
-import styles from "./styles.module.css";
-import { useLikeButton } from "./useLikeButton";
+import clsx from 'clsx';
+
+import styles from './styles.module.css';
+import { useLikeButton } from './useLikeButton';
 
 export type Props = {
   likeCount: number;
@@ -12,20 +13,21 @@ export const LikeButton = (props: Props) => {
   const { isLiked, isDisabled, localLikeCount, onSubmit } =
     useLikeButton(props);
   return (
+    // eslint-disable-next-line @typescript-eslint/no-misused-promises
     <form className={styles.form} onSubmit={onSubmit}>
       <button
         aria-label="Like"
         className={clsx(
           styles.button,
           isLiked && styles.liked,
-          props.isMyPost && styles.myPost
+          props.isMyPost && styles.myPost,
         )}
         disabled={isDisabled}
       >
         {localLikeCount}
       </button>
       <p data-testid="likeStatus">
-        {props.isMyPost ? "" : isLiked ? "Liked" : "Like"}
+        {props.isMyPost ? '' : isLiked ? 'Liked' : 'Like'}
       </p>
     </form>
   );

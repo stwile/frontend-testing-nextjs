@@ -1,16 +1,17 @@
-import { uploadImage, UploadImageData } from "@/services/client/UploadImage";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from 'react';
 import {
   FieldValues,
   Path,
   PathValue,
   UseFormRegister,
   UseFormSetValue,
-} from "react-hook-form";
+} from 'react-hook-form';
+
+import { uploadImage, UploadImageData } from '@/services/client/UploadImage';
 
 export function handleChangeFile(
   onValid: (result: ProgressEvent<FileReader>, file: File) => void,
-  onInvalid?: (result: ProgressEvent<FileReader>, file: File) => void
+  onInvalid?: (result: ProgressEvent<FileReader>, file: File) => void,
 ) {
   return (event: ChangeEvent<HTMLInputElement>) => {
     if (!event.target.files) return;
@@ -48,7 +49,7 @@ export function useUploadImage<T extends FieldValues>({
   }, [register, name]);
 
   const onChangeImage = handleChangeFile((_, file) => {
-    uploadImage({ file })
+    void uploadImage({ file })
       .then((data) => {
         const imgPath = `${data.url}/${data.filename}` as PathValue<T, Path<T>>;
         setImageUrl(imgPath);

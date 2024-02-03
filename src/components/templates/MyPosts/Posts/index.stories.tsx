@@ -1,9 +1,11 @@
+import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+
 import {
   getMyPostsData,
   getMyPostsEmptyData,
-} from "@/services/server/MyPosts/__mock__/fixture";
-import { ComponentMeta, ComponentStoryObj } from "@storybook/react";
-import { Posts } from "./";
+} from '@/services/server/MyPosts/__mock__/fixture';
+
+import { Posts } from './';
 
 export default {
   component: Posts,

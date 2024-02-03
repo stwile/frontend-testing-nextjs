@@ -1,15 +1,16 @@
-import { HttpError } from "@/lib/error";
-import * as Login from "../fetcher";
-import { data } from "./fixture";
+import { HttpError } from '@/lib/error';
 
-jest.mock("../fetcher");
+import { data } from './fixture';
+import * as Login from '../fetcher';
+
+jest.mock('../fetcher');
 
 export function mockPostLoginResolved() {
-  return jest.spyOn(Login, "postLogin").mockResolvedValue(data);
+  return jest.spyOn(Login, 'postLogin').mockResolvedValue(data);
 }
 
 export function mockPostLoginRejected() {
   return jest
-    .spyOn(Login, "postLogin")
+    .spyOn(Login, 'postLogin')
     .mockRejectedValue(new HttpError(500).serialize());
 }

@@ -1,9 +1,10 @@
-import type { NextPage } from "next";
-import type { AppProps } from "next/app";
-import type { ReactElement } from "react";
-import { Err } from "../error";
+import { Err } from '../error';
 
-export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+import type { NextPage } from 'next';
+import type { AppProps } from 'next/app';
+import type { ReactElement } from 'react';
+
+export type NextPageWithLayout<P = object, IP = P> = NextPage<P, IP> & {
   getLayout: (page: ReactElement) => ReactElement;
   getPageTitle: (page: ReactElement, pageProps: P) => ReactElement;
 };

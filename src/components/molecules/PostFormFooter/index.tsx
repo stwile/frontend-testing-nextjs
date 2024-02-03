@@ -1,30 +1,33 @@
-import { Button } from "@/components/atoms/Button";
-import { Switch } from "@/components/atoms/Switch";
-import { ContentFooter } from "@/components/molecules/ContentFooter";
-import { PutInput } from "@/pages/api/my/posts/[postId]";
-import { Control, UseFormRegister, useWatch } from "react-hook-form";
-import styles from "./styles.module.css";
+import { Control, UseFormRegister, useWatch } from 'react-hook-form';
+
+import { Button } from '@/components/atoms/Button';
+import { Switch } from '@/components/atoms/Switch';
+import { ContentFooter } from '@/components/molecules/ContentFooter';
+
+import { PutInput } from '@/pages/api/my/posts/[postId]';
+
+import styles from './styles.module.css';
 
 const SaveButton = ({
   name,
   control,
   onClickSave,
 }: {
-  name: "published";
+  name: 'published';
   control: Control<PutInput>;
   onClickSave: (isPublish: boolean) => void;
 }) => {
   const isPublish = useWatch({ name, control });
   return (
     <Button
-      type={isPublish ? "button" : "submit"}
+      type={isPublish ? 'button' : 'submit'}
       variant="large"
-      theme={isPublish ? "blue" : "dark"}
+      theme={isPublish ? 'blue' : 'dark'}
       onClick={() => {
         onClickSave(isPublish);
       }}
     >
-      {isPublish ? "記事を公開する" : "下書き保存する"}
+      {isPublish ? '記事を公開する' : '下書き保存する'}
     </Button>
   );
 };
@@ -38,11 +41,12 @@ export const PostFormFooter = ({
 }: {
   control: Control<PutInput>;
   isSubmitting: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   register: UseFormRegister<any>;
   onClickSave: (isPublish: boolean) => void;
   onClickDelete?: () => void;
 }) => {
-  const name = "published";
+  const name = 'published';
   return (
     <ContentFooter>
       <fieldset className={styles.module} disabled={isSubmitting}>

@@ -1,8 +1,9 @@
-import clsx from "clsx";
-import { ComponentPropsWithoutRef, forwardRef } from "react";
-import styles from "./styles.module.css";
+import clsx from 'clsx';
+import { ComponentPropsWithoutRef, forwardRef } from 'react';
 
-type Props = ComponentPropsWithoutRef<"p">;
+import styles from './styles.module.css';
+
+type Props = ComponentPropsWithoutRef<'p'>;
 
 export const ErrorMessage = forwardRef<HTMLParagraphElement, Props>(
   function ErrorMessage({ className, ...props }, ref) {
@@ -15,5 +16,5 @@ export const ErrorMessage = forwardRef<HTMLParagraphElement, Props>(
         className={clsx(className, styles.module)}
       />
     );
-  }
+  },
 );

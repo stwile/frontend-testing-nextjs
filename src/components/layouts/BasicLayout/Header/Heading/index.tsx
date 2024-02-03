@@ -1,6 +1,7 @@
-import Link from "next/link";
-import Pen from "./assets/Pen.svg";
-import styles from "./styles.module.css";
+import Link from 'next/link';
+
+import Pen from './assets/Pen.svg';
+import styles from './styles.module.css';
 
 export const Heading = () => {
   return (

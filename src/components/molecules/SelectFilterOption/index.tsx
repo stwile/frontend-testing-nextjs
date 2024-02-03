@@ -1,7 +1,8 @@
-import clsx from "clsx";
-import { ComponentProps, useId } from "react";
-import { Combobox } from "../Combobox";
-import styles from "./styles.module.css";
+import clsx from 'clsx';
+import { ComponentProps, useId } from 'react';
+
+import styles from './styles.module.css';
+import { Combobox } from '../Combobox';
 
 export const SelectFilterOption = ({
   title,
@@ -10,7 +11,7 @@ export const SelectFilterOption = ({
   className,
 }: {
   title: string;
-  selectProps: Omit<ComponentProps<typeof Combobox>, "id" | "className">;
+  selectProps: Omit<ComponentProps<typeof Combobox>, 'id' | 'className'>;
   options: { value: string; label: string }[];
   className?: string;
 }) => {

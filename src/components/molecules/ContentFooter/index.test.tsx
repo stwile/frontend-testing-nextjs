@@ -1,7 +1,8 @@
-import { render, screen } from "@testing-library/react";
-import { ContentFooter } from "./";
+import { render, screen } from '@testing-library/react';
 
-test("[role=contentinfo]", () => {
+import { ContentFooter } from './';
+
+test('[role=contentinfo]', () => {
   render(<ContentFooter />);
-  expect(screen.getByRole("contentinfo")).toBeInTheDocument();
+  expect(screen.getByRole('contentinfo')).toBeInTheDocument();
 });

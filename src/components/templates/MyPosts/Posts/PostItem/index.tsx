@@ -1,10 +1,12 @@
-import { GetMyPostsReturn } from "@/services/server/MyPosts";
-import clsx from "clsx";
-import Link from "next/link";
-import { useId } from "react";
-import styles from "./styles.module.css";
+import clsx from 'clsx';
+import Link from 'next/link';
+import { useId } from 'react';
 
-export const PostItem = ({ post }: { post: GetMyPostsReturn["posts"][0] }) => {
+import { GetMyPostsReturn } from '@/services/server/MyPosts';
+
+import styles from './styles.module.css';
+
+export const PostItem = ({ post }: { post: GetMyPostsReturn['posts'][0] }) => {
   const titleId = useId();
   return (
     <li className={clsx(styles.item, !post.published && styles.draft)}>

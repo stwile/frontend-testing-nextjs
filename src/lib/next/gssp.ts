@@ -1,10 +1,12 @@
-import { getSession } from "@/lib/next-session";
-import { assertAsUser, LoginUser } from "@/lib/schema/LoginUser";
-import type { GetServerSidePropsContext } from "next";
-import { HttpError, UnauthorizedError } from "../error";
+import { getSession } from '@/lib/next-session';
+import { assertAsUser, LoginUser } from '@/lib/schema/LoginUser';
+
+import { HttpError, UnauthorizedError } from '../error';
+
+import type { GetServerSidePropsContext } from 'next';
 
 type WithLoginNextFn<T> = (
-  ctx: GetServerSidePropsContext & { user: LoginUser }
+  ctx: GetServerSidePropsContext & { user: LoginUser },
 ) => Promise<T>;
 
 export function withLogin<T>(next: WithLoginNextFn<T>) {
@@ -17,7 +19,7 @@ export function withLogin<T>(next: WithLoginNextFn<T>) {
     } catch (err) {
       if (err instanceof UnauthorizedError) {
         session.redirectUrl = ctx.resolvedUrl;
-        return { redirect: { permanent: false, destination: "/login" } };
+        return { redirect: { permanent: false, destination: '/login' } };
       }
       if (err instanceof HttpError) {
         return { props: { data: null, err: err.serialize() } };
@@ -28,13 +30,14 @@ export function withLogin<T>(next: WithLoginNextFn<T>) {
 }
 
 type WithoutLoginNextFn<T> = (
-  ctx: GetServerSidePropsContext & { user: LoginUser | null }
+  ctx: GetServerSidePropsContext & { user: LoginUser | null },
 ) => Promise<T>;
 
 export function withoutLogin<T>(next: WithoutLoginNextFn<T>) {
   return async (ctx: GetServerSidePropsContext) => {
     const session = await getSession(ctx.req, ctx.res);
     try {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const data = await next({ ...ctx, user: session?.user || null });
       return { props: { data, err: null } };
     } catch (err) {

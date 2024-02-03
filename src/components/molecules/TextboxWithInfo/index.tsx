@@ -1,9 +1,11 @@
-import { DescriptionMessage } from "@/components/atoms/DescriptionMessage";
-import { ErrorMessage } from "@/components/atoms/ErrorMessage";
-import { Textbox } from "@/components/atoms/Textbox";
-import clsx from "clsx";
-import { ComponentProps, forwardRef, ReactNode, useId } from "react";
-import styles from "./styles.module.css";
+import clsx from 'clsx';
+import { ComponentProps, forwardRef, ReactNode, useId } from 'react';
+
+import { DescriptionMessage } from '@/components/atoms/DescriptionMessage';
+import { ErrorMessage } from '@/components/atoms/ErrorMessage';
+import { Textbox } from '@/components/atoms/Textbox';
+
+import styles from './styles.module.css';
 
 type Props = ComponentProps<typeof Textbox> & {
   title: string;
@@ -15,7 +17,7 @@ type Props = ComponentProps<typeof Textbox> & {
 export const TextboxWithInfo = forwardRef<HTMLInputElement, Props>(
   function TextboxWithInfo(
     { title, info, description, error, className, ...props },
-    ref
+    ref,
   ) {
     const componentId = useId();
     const textboxId = `${componentId}-textbox`;
@@ -53,5 +55,5 @@ export const TextboxWithInfo = forwardRef<HTMLInputElement, Props>(
         )}
       </section>
     );
-  }
+  },
 );

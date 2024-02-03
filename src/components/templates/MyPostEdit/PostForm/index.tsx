@@ -1,17 +1,20 @@
-import { PostFormFooter } from "@/components/molecules/PostFormFooter";
-import { PostFormHeroImage } from "@/components/molecules/PostFormHeroImage";
-import { PostFormInfo } from "@/components/molecules/PostFormInfo";
-import { TextareaWithInfo } from "@/components/molecules/TextareaWithInfo";
-import { updateMyPostInputSchema } from "@/lib/schema/MyPost";
-import { PutInput } from "@/pages/api/my/posts/[postId]";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { zodResolver } from '@hookform/resolvers/zod';
 import {
   FieldValues,
   SubmitErrorHandler,
   SubmitHandler,
   useForm,
-} from "react-hook-form";
-import styles from "./styles.module.css";
+} from 'react-hook-form';
+
+import { PostFormFooter } from '@/components/molecules/PostFormFooter';
+import { PostFormHeroImage } from '@/components/molecules/PostFormHeroImage';
+import { PostFormInfo } from '@/components/molecules/PostFormInfo';
+import { TextareaWithInfo } from '@/components/molecules/TextareaWithInfo';
+
+import { updateMyPostInputSchema } from '@/lib/schema/MyPost';
+import { PutInput } from '@/pages/api/my/posts/[postId]';
+
+import styles from './styles.module.css';
 
 type Props<T extends FieldValues = PutInput> = {
   title: string;
@@ -38,6 +41,7 @@ export const PostForm = (props: Props) => {
     <form
       aria-label={props.title}
       className={styles.module}
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises
       onSubmit={handleSubmit(props.onValid, props.onInvalid)}
     >
       <div className={styles.content}>
@@ -52,7 +56,7 @@ export const PostForm = (props: Props) => {
           />
         </div>
         <TextareaWithInfo
-          {...register("body")}
+          {...register('body')}
           title="本文"
           rows={20}
           error={errors.body?.message}

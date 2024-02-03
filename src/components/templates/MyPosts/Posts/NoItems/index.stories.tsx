@@ -1,6 +1,8 @@
-import { getMyPostsData } from "@/services/server/MyPosts/__mock__/fixture";
-import { ComponentMeta, ComponentStoryObj } from "@storybook/react";
-import { NoItems } from "./";
+import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+
+import { getMyPostsData } from '@/services/server/MyPosts/__mock__/fixture';
+
+import { NoItems } from './';
 
 export default {
   component: NoItems,

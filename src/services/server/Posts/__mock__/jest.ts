@@ -1,15 +1,16 @@
-import { HttpError } from "@/lib/error";
-import * as Posts from "../";
-import { getPostsData } from "./fixture";
+import { HttpError } from '@/lib/error';
 
-jest.mock("../");
+import { getPostsData } from './fixture';
+import * as Posts from '../';
+
+jest.mock('../');
 
 export function mockGetPostsResolved() {
-  return jest.spyOn(Posts, "getPosts").mockResolvedValue(getPostsData);
+  return jest.spyOn(Posts, 'getPosts').mockResolvedValue(getPostsData);
 }
 
 export function mockGetPostsRejected() {
   return jest
-    .spyOn(Posts, "getPosts")
+    .spyOn(Posts, 'getPosts')
     .mockRejectedValue(new HttpError(500).serialize());
 }

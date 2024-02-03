@@ -1,5 +1,6 @@
-import { useContext } from "react";
-import { ToastActionContext, ToastStateContext } from "./ToastContext";
+import { useContext } from 'react';
+
+import { ToastActionContext, ToastStateContext } from './ToastContext';
 
 export function useToastAction() {
   return useContext(ToastActionContext);
