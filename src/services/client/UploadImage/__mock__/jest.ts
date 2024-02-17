@@ -5,7 +5,7 @@ import * as UploadImage from '../fetcher';
 
 jest.mock('../fetcher');
 
-export function mockUploadImage(status?: ErrorStatus) {
+export const mockUploadImage = (status?: ErrorStatus) => {
   if (status && status > 299) {
     return jest
       .spyOn(UploadImage, 'uploadImage')
@@ -14,4 +14,4 @@ export function mockUploadImage(status?: ErrorStatus) {
   return jest
     .spyOn(UploadImage, 'uploadImage')
     .mockResolvedValueOnce(uploadImageData);
-}
+};

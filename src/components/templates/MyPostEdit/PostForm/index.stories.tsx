@@ -1,6 +1,5 @@
-import { expect } from '@storybook/jest';
 import { Meta, StoryObj } from '@storybook/react';
-import { userEvent as user, waitFor, within } from '@storybook/testing-library';
+import { userEvent, waitFor, within, expect } from '@storybook/test';
 
 import { BasicLayoutDecorator, PCStory } from '@/tests/storybook';
 
@@ -11,7 +10,9 @@ export default {
   decorators: [BasicLayoutDecorator],
   parameters: {
     ...PCStory.parameters,
-    nextRouter: { pathname: '/my/posts' },
+    nextRouter: {
+      pathname: '/my/posts',
+    },
   },
   args: {
     title: '新規記事',
@@ -28,7 +29,7 @@ export const Default: Story = {};
 export const SucceedSaveAsDraft: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await user.type(
+    await userEvent.type(
       canvas.getByRole('textbox', { name: '記事タイトル' }),
       '私の技術記事',
     );
@@ -38,7 +39,9 @@ export const SucceedSaveAsDraft: Story = {
 export const FailedSaveAsDraft: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await user.click(canvas.getByRole('button', { name: '下書き保存する' }));
+    await userEvent.click(
+      canvas.getByRole('button', { name: '下書き保存する' }),
+    );
     const textbox = canvas.getByRole('textbox', { name: '記事タイトル' });
     await waitFor(() =>
       expect(textbox).toHaveErrorMessage('1文字以上入力してください'),
@@ -49,11 +52,13 @@ export const FailedSaveAsDraft: Story = {
 export const SavePublish: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await user.type(
+    await userEvent.type(
       canvas.getByRole('textbox', { name: '記事タイトル' }),
       '私の技術記事',
     );
-    await user.click(canvas.getByRole('switch', { name: '公開ステータス' }));
+    await userEvent.click(
+      canvas.getByRole('switch', { name: '公開ステータス' }),
+    );
     await expect(
       canvas.getByRole('button', { name: '記事を公開する' }),
     ).toBeInTheDocument();

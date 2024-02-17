@@ -1,6 +1,6 @@
 import { expect } from '@storybook/jest';
 import { Meta, StoryObj } from '@storybook/react';
-import { userEvent as user, waitFor, within } from '@storybook/testing-library';
+import { userEvent as user, waitFor, within } from '@storybook/test';
 
 import { handleGetMyProfile } from '@/services/client/MyProfile/__mock__/msw';
 import { LoginUserInfoProviderDecorator, SPStory } from '@/tests/storybook';
