@@ -1,44 +1,21 @@
-import { StorybookConfig } from '@storybook/nextjs';
-import path from 'path';
+import type { StorybookConfig } from '@storybook/nextjs';
 
 const config: StorybookConfig = {
-  stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
-
+  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
+    '@storybook/addon-onboarding',
     '@storybook/addon-links',
     '@storybook/addon-essentials',
+    '@chromatic-com/storybook',
     '@storybook/addon-interactions',
-    '@storybook/addon-a11y',
-    'storycap',
   ],
-
   framework: {
     name: '@storybook/nextjs',
     options: {},
   },
-
-  staticDirs: ['../public'],
-
-  previewHead: (head) => `
-    ${head}
-    <link rel="stylesheet" href="styles/globals.css" />
-  `,
-
-  webpackFinal: async (config) => {
-    const { resolve } = config;
-    if (!resolve) {
-      return config;
-    }
-    resolve.alias = {
-      ...resolve.alias,
-      '@': path.resolve(__dirname, '../src'),
-    };
-    return { ...config, resolve };
-  },
-
   docs: {
-    autodocs: true,
+    autodocs: 'tag',
   },
+  staticDirs: ['../public'],
 };
-
 export default config;

@@ -41,7 +41,8 @@
     "pre-push": "tsc",
     "prettier": "prettier --write .",
     "secretlint": "secretlint --maskSecrets --secretlintignore .gitignore '**/*'",
-    "markuplint": "markuplint \"./**/*.tsx\""
+    "markuplint": "markuplint \"./**/*.tsx\"",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",
@@ -70,6 +71,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
+    "@chromatic-com/storybook": "^1.1.9",
     "@markuplint/jsx-parser": "^3.12.0",
     "@markuplint/react-spec": "^3.13.0",
     "@playwright/test": "^1.40.1",
@@ -79,6 +81,8 @@
     "@storybook/addon-essentials": "^7.6.6",
     "@storybook/addon-interactions": "^7.6.6",
     "@storybook/addon-links": "^7.6.6",
+    "@storybook/addon-onboarding": "^1.0.11",
+    "@storybook/blocks": "8.0.0-beta.3",
     "@storybook/jest": "^0.2.3",
     "@storybook/nextjs": "^7.6.6",
     "@storybook/react": "^7.6.6",
