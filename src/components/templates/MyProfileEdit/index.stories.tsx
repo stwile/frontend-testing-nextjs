@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { getMyProfileData } from '@/services/server/MyProfile/__mock__/fixture';
 import { BasicLayoutDecorator, PCStory, SPStory } from '@/tests/storybook';
@@ -9,9 +9,9 @@ export default {
   component: MyProfileEdit,
   args: { profile: getMyProfileData },
   decorators: [BasicLayoutDecorator],
-} as ComponentMeta<typeof MyProfileEdit>;
+} satisfies Meta<typeof MyProfileEdit>;
 
-type Story = ComponentStoryObj<typeof MyProfileEdit>;
+type Story = StoryObj<typeof MyProfileEdit>;
 
 export const Default: Story = { ...PCStory };
 

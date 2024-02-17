@@ -1,5 +1,5 @@
 import { expect } from '@storybook/jest';
-import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { userEvent as user, waitFor, within } from '@storybook/testing-library';
 
 import { handleGetMyProfile } from '@/services/client/MyProfile/__mock__/msw';
@@ -10,9 +10,9 @@ import { Header } from './';
 export default {
   component: Header,
   decorators: [LoginUserInfoProviderDecorator],
-} as ComponentMeta<typeof Header>;
+} satisfies Meta<typeof Header>;
 
-type Story = ComponentStoryObj<typeof Header>;
+type Story = StoryObj<typeof Header>;
 
 export const NotLoggedIn: Story = {
   parameters: {

@@ -1,5 +1,5 @@
 import { expect } from '@storybook/jest';
-import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { userEvent as user, waitFor, within } from '@storybook/testing-library';
 
 import { BasicLayoutDecorator, PCStory } from '@/tests/storybook';
@@ -15,12 +15,12 @@ export default {
   },
   args: {
     title: '新規記事',
-    description: '公開ステータスを変更するまで、記事は公開されません',
+    // description: '公開ステータスを変更するまで、記事は公開されません',
     onClickSave: () => {},
   },
-} as ComponentMeta<typeof PostForm>;
+} satisfies Meta<typeof PostForm>;
 
-type Story = ComponentStoryObj<typeof PostForm>;
+type Story = StoryObj<typeof PostForm>;
 
 export const Default: Story = {};
 

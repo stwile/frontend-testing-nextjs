@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import {
   getMyPostsData,
@@ -10,9 +10,9 @@ import { Posts } from './';
 export default {
   component: Posts,
   args: getMyPostsData,
-} as ComponentMeta<typeof Posts>;
+} satisfies Meta<typeof Posts>;
 
-type Story = ComponentStoryObj<typeof Posts>;
+type Story = StoryObj<typeof Posts>;
 
 export const Default: Story = {};
 

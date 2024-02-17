@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { TextboxWithError } from './';
 
@@ -15,9 +15,9 @@ export default {
       config: { rules: [{ id: 'label', enabled: false }] },
     },
   },
-} as ComponentMeta<typeof TextboxWithError>;
+} satisfies Meta<typeof TextboxWithError>;
 
-type Story = ComponentStoryObj<typeof TextboxWithError>;
+type Story = StoryObj<typeof TextboxWithError>;
 
 export const Default: Story = {};
 

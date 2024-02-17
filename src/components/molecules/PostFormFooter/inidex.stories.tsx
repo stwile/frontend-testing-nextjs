@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { ComponentPropsWithoutRef } from 'react';
 import { useForm } from 'react-hook-form';
 
@@ -18,9 +18,9 @@ function TestComponent(
 
 export default {
   component: TestComponent,
-} as ComponentMeta<typeof PostFormFooter>;
+} satisfies Meta<typeof PostFormFooter>;
 
-type Story = ComponentStoryObj<typeof PostFormFooter>;
+type Story = StoryObj<typeof PostFormFooter>;
 
 export const Default: Story = {};
 

@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { Switch } from './';
 
@@ -9,9 +9,9 @@ export default {
       config: { rules: [{ id: 'label', enabled: false }] },
     },
   },
-} as ComponentMeta<typeof Switch>;
+} satisfies Meta<typeof Switch>;
 
-type Story = ComponentStoryObj<typeof Switch>;
+type Story = StoryObj<typeof Switch>;
 
 export const Default: Story = {};
 

@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
 
 import { Textbox } from '../Textbox';
@@ -24,9 +24,9 @@ export default {
       config: { rules: [{ id: 'label', enabled: false }] },
     },
   },
-} as ComponentMeta<typeof TestComponent>;
+} satisfies Meta<typeof TestComponent>;
 
-type Story = ComponentStoryObj<typeof TestComponent>;
+type Story = StoryObj<typeof TestComponent>;
 
 export const Default: Story = {};
 
