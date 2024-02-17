@@ -34,12 +34,13 @@ export const PostForm = (props: Props) => {
   } = useForm<PostInput>({
     resolver: zodResolver(createMyPostInputSchema),
   });
+  const { onValid, onInvalid, title, onClickSave, children } = props;
   return (
     <form
-      aria-label={props.title}
+      aria-label={title}
       className={styles.module}
       // eslint-disable-next-line @typescript-eslint/no-misused-promises
-      onSubmit={handleSubmit(props.onValid, props.onInvalid)}
+      onSubmit={handleSubmit(onValid, onInvalid)}
     >
       <div className={styles.content}>
         <div className={styles.meta}>
@@ -62,9 +63,9 @@ export const PostForm = (props: Props) => {
         isSubmitting={isSubmitting}
         register={register}
         control={control}
-        onClickSave={props.onClickSave}
+        onClickSave={onClickSave}
       />
-      {props.children}
+      {children}
     </form>
   );
 };
