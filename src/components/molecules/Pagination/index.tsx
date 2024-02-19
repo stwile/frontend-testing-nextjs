@@ -33,7 +33,13 @@ export const Pagination = ({
           <li key={index}>
             {typeof item === 'number' ? (
               <Link
-                href={{ pathname, query: { ...router.query, page: item } }}
+                href={{
+                  pathname,
+                  query: {
+                    ...router.query,
+                    page: item,
+                  },
+                }}
                 legacyBehavior
               >
                 {/* TODO: legacyBehavior 不要でも aria属性が適用できるようになれば a要素は削除する */}

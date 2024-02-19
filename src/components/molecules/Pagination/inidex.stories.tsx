@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
+import { expect, within } from '@storybook/test';
 
 import { generatePagination } from '@/lib/util/pagination';
 
@@ -11,18 +12,25 @@ export default {
 
 type Story = StoryObj<typeof Pagination>;
 
-const getStory = (page: number) => ({
+export const NoContent: Story = {
   args: {
-    pagination: generatePagination(page, 9),
+    pagination: generatePagination(0, 9),
   },
   parameters: {
-    nextRouter: { query: { page: `${page}` } },
+    nextjs: {
+      query: {
+        page: 0,
+      },
+    },
   },
-});
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
 
-export const Page1: Story = getStory(1);
-export const Page2: Story = getStory(2);
-export const Page3: Story = getStory(3);
-export const Page4: Story = getStory(4);
-export const Page5: Story = getStory(5);
-export const Page9: Story = getStory(9);
+    const navigation = canvas.queryByRole('navigation', {
+      name: 'ページネーション',
+    });
+
+    /** 現在ページ値を渡していない場合、レンダリングされない */
+    await expect(navigation).toBeNull();
+  },
+};

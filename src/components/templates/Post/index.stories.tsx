@@ -3,6 +3,8 @@ import { Meta, StoryObj } from '@storybook/react';
 import { getPostData } from '@/services/server/Post/__mock__/fixture';
 import { BasicLayoutDecorator, PCStory, SPStory } from '@/tests/storybook';
 
+import { checkDisplay } from './assert';
+
 import { Post } from './';
 
 export default {
@@ -13,6 +15,12 @@ export default {
 
 type Story = StoryObj<typeof Post>;
 
-export const Default: Story = { ...PCStory };
+export const Default: Story = {
+  parameters: { ...PCStory.parameters },
+  play: checkDisplay.play,
+};
 
-export const SP: Story = { ...SPStory };
+export const SP: Story = {
+  parameters: { ...SPStory.parameters },
+  play: checkDisplay.play,
+};

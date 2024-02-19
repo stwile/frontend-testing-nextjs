@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
+import { expect, userEvent, within } from '@storybook/test';
 
 import { getPostsData } from '@/services/server/Posts/__mock__/fixture';
 
@@ -20,10 +21,38 @@ export default {
 
 type Story = StoryObj<typeof PostItem>;
 
-export const Default: Story = {
-  args: { post: getPostsData.posts[0] },
+export const Published: Story = {
+  args: {
+    post: getPostsData.posts[0],
+  },
+  play: async ({ canvasElement, args }) => {
+    const canvas = within(canvasElement);
+
+    const link = canvas.getByRole('link');
+
+    /** リンクのアクセシブルネームはタイトルを参照する */
+    await expect(link).toHaveAccessibleName(args.post.title);
+
+    /** リンクを押下すると画面遷移する */
+    await userEvent.click(link);
+    await expect(link).toMatchObject({ pathname: `/posts/${args.post.id}` });
+  },
 };
 
-export const Draft: Story = {
-  args: { post: { ...getPostsData.posts[0], published: false } },
+export const UnPublished: Story = {
+  args: {
+    post: getPostsData.posts[0],
+  },
+  play: async ({ canvasElement, args }) => {
+    const canvas = within(canvasElement);
+
+    const link = canvas.getByRole('link');
+
+    /** リンクのアクセシブルネームはタイトルを参照する */
+    await expect(link).toHaveAccessibleName(args.post.title);
+
+    /** リンクを押下すると画面遷移する */
+    await userEvent.click(link);
+    await expect(link).toMatchObject({ pathname: `/posts/${args.post.id}` });
+  },
 };

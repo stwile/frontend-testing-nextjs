@@ -34,7 +34,13 @@ export const Avatar = (props: Props) => {
   return (
     <div className={styles.module}>
       <p className={styles.avatar}>
-        <img src={imageUrl || ''} alt="" />
+        <img
+          src={imageUrl || ''}
+          alt=""
+          width={50}
+          height={50}
+          decoding="async"
+        />
       </p>
       <InputFileButton
         buttonProps={{

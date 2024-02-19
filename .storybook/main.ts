@@ -17,5 +17,9 @@ const config: StorybookConfig = {
     autodocs: 'tag',
   },
   staticDirs: ['../public'],
+  previewHead: (head) => `
+    ${head}
+    <link rel="stylesheet" href="styles/globals.css" />
+  `,
 };
 export default config;

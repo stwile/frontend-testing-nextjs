@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useClickAway } from 'react-use';
 
-export function useDrawerMenu() {
+export const useDrawerMenu = () => {
   const [isOpen, setIsOpen] = useState(true);
   const menuRef = useRef<HTMLDivElement>(null);
   const handleCloseMenu = useCallback(() => {
@@ -20,4 +20,4 @@ export function useDrawerMenu() {
     handleCloseMenu();
   }, [handleCloseMenu, router.asPath]);
   return { menuRef, isOpen, handleCloseMenu, handleOpenMenu };
-}
+};

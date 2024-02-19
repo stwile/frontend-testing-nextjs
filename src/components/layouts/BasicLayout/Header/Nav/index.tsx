@@ -4,10 +4,10 @@ import { AnchorHTMLAttributes } from 'react';
 
 import styles from './styles.module.css';
 
-function isCurrent(flag: boolean): AnchorHTMLAttributes<HTMLAnchorElement> {
+const isCurrent = (flag: boolean): AnchorHTMLAttributes<HTMLAnchorElement> => {
   if (!flag) return {};
   return { 'aria-current': 'page' };
-}
+};
 
 type Props = { onCloseMenu: () => void };
 

@@ -24,6 +24,13 @@ function TestComponent({ error }: { error?: string }) {
 
 setupMockServer(handleGetMyProfile());
 
+jest.mock('next/router', () => ({
+  useRouter: jest.fn().mockReturnValue({
+    asPath: '/',
+    pathname: '/',
+  }),
+}));
+
 test('画像が選択されていない時、ボタン表記は「イメージを選択する」', async () => {
   render(<TestComponent />);
   expect(

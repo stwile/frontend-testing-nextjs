@@ -4,30 +4,30 @@ import { setupServer } from 'msw/node';
 
 import type { RequestHandler } from 'msw';
 
-export function setupMockServer(...handlers: RequestHandler[]) {
+export const setupMockServer = (...handlers: RequestHandler[]) => {
   const server = setupServer(...handlers);
   beforeAll(() => server.listen());
   afterEach(() => server.resetHandlers());
   afterAll(() => server.close());
   return server;
-}
+};
 
-export function selectImageFile(
+export const selectImageFile = (
   inputTestId = 'file',
   fileName = 'hello.png',
   content = 'hello',
-) {
+) => {
   const user = userEvent.setup();
   const filePath = [`C:\\fakepath\\${fileName}`];
   const file = new File([content], fileName, { type: 'image/png' });
   const fileInput = screen.getByTestId(inputTestId);
   const selectImage = async () => await act(() => user.upload(fileInput, file));
   return { fileInput, filePath, selectImage };
-}
+};
 
 const original = window.location;
 
-export function mockWindowLocationReload() {
+export const mockWindowLocationReload = () => {
   Object.defineProperty(window, 'location', {
     writable: true,
     value: { reload: jest.fn() },
@@ -39,4 +39,4 @@ export function mockWindowLocationReload() {
     });
   };
   return cleanup;
-}
+};

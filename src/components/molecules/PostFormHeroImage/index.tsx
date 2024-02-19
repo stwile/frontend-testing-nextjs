@@ -36,7 +36,9 @@ export const PostFormHeroImage = (props: Props) => {
   });
   return (
     <div className={styles.module}>
-      {imageUrl && <img src={imageUrl} alt="" />}
+      {imageUrl && (
+        <img src={imageUrl} alt="" width="30" height="50" decoding="async" />
+      )}
       <InputFileButton
         className={clsx(styles.button, imageUrl && styles.hasImage)}
         buttonProps={{

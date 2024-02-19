@@ -1,7 +1,6 @@
 import { handleGetMyProfile } from './../src/services/client/MyProfile/__mock__/msw';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { initialize, mswDecorator } from 'msw-storybook-addon';
-import { RouterContext } from 'next/dist/shared/lib/router-context';
 import { withScreenshot } from 'storycap';
 
 export const parameters = {
@@ -11,9 +10,6 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
-  },
-  nextRouter: {
-    Provider: RouterContext.Provider,
   },
   viewport: {
     viewports: INITIAL_VIEWPORTS,
