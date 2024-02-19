@@ -5,6 +5,8 @@ import { ReactRenderer } from '@storybook/react';
 import { BasicLayout } from '@/components/layouts/BasicLayout';
 import { LoginUserInfoProvider } from '@/components/providers/LoginUserInfo';
 
+import { ToastProvider } from '../components/providers/ToastProvider/index';
+
 export const BasicLayoutDecorator = (
   Story: PartialStoryFn<ReactRenderer, Args>,
 ) => BasicLayout(<Story />);
@@ -15,6 +17,14 @@ export const LoginUserInfoProviderDecorator = (
   <LoginUserInfoProvider>
     <Story />
   </LoginUserInfoProvider>
+);
+
+export const ToastProviderDecorator = (
+  Story: PartialStoryFn<ReactRenderer, Args>,
+) => (
+  <ToastProvider>
+    <Story />
+  </ToastProvider>
 );
 
 export const SPStory = {

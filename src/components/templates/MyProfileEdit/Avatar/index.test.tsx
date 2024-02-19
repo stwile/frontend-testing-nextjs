@@ -19,10 +19,19 @@ function TestComponent() {
 
 setupMockServer(handleGetMyProfile());
 
+jest.mock('next/router', () => ({
+  useRouter: jest.fn().mockReturnValue({
+    asPath: '/',
+    pathname: '/',
+  }),
+}));
+
 test('「写真を変更する」ボタンがある', async () => {
   render(<TestComponent />);
   expect(
-    await screen.findByRole('button', { name: '写真を変更する' }),
+    await screen.findByRole('button', {
+      name: '写真を変更する',
+    }),
   ).toBeInTheDocument();
 });
 

@@ -9,10 +9,10 @@ import {
 
 import { uploadImage, UploadImageData } from '@/services/client/UploadImage';
 
-export function handleChangeFile(
+export const handleChangeFile = (
   onValid: (result: ProgressEvent<FileReader>, file: File) => void,
   onInvalid?: (result: ProgressEvent<FileReader>, file: File) => void,
-) {
+) => {
   return (event: ChangeEvent<HTMLInputElement>) => {
     if (!event.target.files) return;
     const file = event.target.files[0];
@@ -26,9 +26,9 @@ export function handleChangeFile(
     };
     fileReader.readAsDataURL(file);
   };
-}
+};
 
-export function useUploadImage<T extends FieldValues>({
+export const useUploadImage = <T extends FieldValues>({
   name,
   defaultImageUrl,
   register,
@@ -42,7 +42,7 @@ export function useUploadImage<T extends FieldValues>({
   setValue: UseFormSetValue<T>;
   onResolved?: (data: UploadImageData) => void;
   onRejected?: (err: unknown) => void;
-}) {
+}) => {
   const [imageUrl, setImageUrl] = useState(defaultImageUrl);
   useEffect(() => {
     register(name);
@@ -59,4 +59,4 @@ export function useUploadImage<T extends FieldValues>({
       .catch(onRejected);
   });
   return { onChangeImage, imageUrl } as const;
-}
+};

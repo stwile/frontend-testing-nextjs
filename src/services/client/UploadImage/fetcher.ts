@@ -6,11 +6,11 @@ import { host } from '..';
 
 export const path = () => host(`/upload/image`);
 
-export async function uploadImage({
+export const uploadImage = async ({
   file,
 }: {
   file: File;
-}): Promise<UploadImageData> {
+}): Promise<UploadImageData> => {
   const name = uuid();
   const ext = mime.extension(file.type);
   const filename = encodeURIComponent(`${name}.${ext}`);
@@ -29,4 +29,4 @@ export async function uploadImage({
     body: formData,
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   }).then(() => ({ url, filename, fields }));
-}
+};

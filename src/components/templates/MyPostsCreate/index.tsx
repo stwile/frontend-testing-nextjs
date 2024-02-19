@@ -17,7 +17,9 @@ export const MyPostsCreate = () => {
       title="新規記事"
       onClickSave={(isPublish) => {
         if (!isPublish) return;
-        showAlertDialog({ message: '記事を公開します。よろしいですか？' });
+        showAlertDialog({
+          message: '記事を公開します。よろしいですか？',
+        });
       }}
       onValid={async (input) => {
         const status = input.published ? '公開' : '保存';
@@ -25,12 +27,21 @@ export const MyPostsCreate = () => {
           hideAlertDialog();
         }
         try {
-          showToast({ message: '保存中…', style: 'busy' });
+          showToast({
+            message: '保存中…',
+            style: 'busy',
+          });
           const { id } = await createMyPosts({ input });
           await router.push(`/my/posts/${id}`);
-          showToast({ message: `${status}に成功しました`, style: 'succeed' });
+          showToast({
+            message: `${status}に成功しました`,
+            style: 'succeed',
+          });
         } catch (err) {
-          showToast({ message: `${status}に失敗しました`, style: 'failed' });
+          showToast({
+            message: `${status}に失敗しました`,
+            style: 'failed',
+          });
         }
       }}
       onInvalid={() => {

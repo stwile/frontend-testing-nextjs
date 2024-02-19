@@ -7,10 +7,10 @@ export const defaultHeaders = {
   Accept: 'application/json',
 };
 
-export async function handleResolve(res: Response) {
+export const handleResolve = async (res: Response) => {
   if (!res.ok) {
     const status = res.status as ErrorStatus;
     throw new HttpError(status);
   }
   return res.json();
-}
+};
